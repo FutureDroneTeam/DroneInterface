@@ -1,9 +1,8 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
-from lib.settings import Setting
 
-flame_connection = False
+flame_connection = True
 temperature_humidity_connection = False
 gas_connection = False
 vibration_connection = False
@@ -17,6 +16,13 @@ window.title("Done Interface")
 font_specs = ('ubuntu', 11)
 
 window.iconbitmap('icon.ico')
+
+
+def setting():
+    window_setting = tk.Tk()
+    window_setting.geometry("500x500")
+    window_setting.title("Setting")
+    window_setting.resizable(False, False)
 
 
 def flame_sensor():
@@ -82,7 +88,7 @@ file_save = tk.Menu(menubar, font=font_specs, tearoff=0)
 file_save.add_command(label="Save", command=onSave)
 file_save.add_command(label="New window")
 file_save.add_command(label="Close window", command=window.quit)
-file_save.add_command(label="Setting", command=Setting.gui)
+file_save.add_command(label="Setting", command=setting)
 sensor_set = tk.Menu(menubar, font=font_specs, tearoff=0)
 sensor_set.add_command(label="flame sensor", command=flame_sensor)
 sensor_set.add_command(label="Temperature and Humidity senor", command=temperature_humidity_sensor)
